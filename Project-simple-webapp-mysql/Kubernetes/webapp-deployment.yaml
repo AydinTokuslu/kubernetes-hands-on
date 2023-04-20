@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: aydintokuslu/simple-mysql:4.0
+        ports:
+        - containerPort: 8080
+        # env:
+        # - name: DB_Host
+        #   value: mysql-service
+        # - name: MYSQL_ROOT_PASSWORD
+        #   value: paswrd"
+        # - name: MYSQL_DATABASE
+        #   value: "DB_Database"
+        # - name: MYSQL_USER
+        #   value: "DB_User"
+        # - name: MYSQL_PASSWORD
+        #   value: "DB_Password"
+        volumeMounts:
+        - name: app-secret-volumes
+          mountPath: "/opt/app-secret-volumes"
+          readOnly: true
+        envFrom:
+          - secretRef:
+              name: app-secret
+      volumes:
+        - name: app-secret-volumes
+          secret:
+            secretName: app-secret
