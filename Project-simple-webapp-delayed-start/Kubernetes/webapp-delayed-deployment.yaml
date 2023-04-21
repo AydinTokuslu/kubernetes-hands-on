@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webapp-delayed
+  name: webapp-delayed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-delayed
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: webapp-delayed
+    spec:
+      containers:
+      - image: aydintokuslu/webapp-delayed:1.0
+        name: webapp-delayed
+        ports:
+        - containerPort: 8080
