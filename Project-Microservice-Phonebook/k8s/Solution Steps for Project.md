@@ -5,13 +5,13 @@
 - create Docker image from Dockerfile under web_server/create_image/ directory with below command
 
 ```bash
-docker build -t aydintokuslu/phonebook_webserver .
+docker build -t aydintokuslu/proje_webserver .
 ```
 
 - create Docker image from Dockerfile under result_server/create_image/ directory with below command
 
 ```bash
-docker build -t aydintokuslu/phonebook_resultserver .
+docker build -t aydintokuslu/proje_resultserver .
 ```
 
 ## Step 2: Push the newly created images to your Docker Hub repository
@@ -27,8 +27,8 @@ Password
 - second push your images to docker hub
 
 ```bash
-docker push aydintokuslu/phonebook_webserver
-docker push aydintokuslu/phonebook_resultserver
+docker push aydintokuslu/proje_webserver
+docker push aydintokuslu/proje_resultserver
 ```
 
 ## Step 3: Change image names in webserver_deployment.yml and resultserver_deployment.yml files
@@ -39,7 +39,7 @@ docker push aydintokuslu/phonebook_resultserver
  spec:
       containers:
         - name: result-app
-          image: aydintokuslu/phonebook_resultserver
+          image: aydintokuslu/proje_resultserver
 ```
 
 ## Step 4: Create secret/configmap

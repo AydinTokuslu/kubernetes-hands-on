@@ -20,7 +20,7 @@ spec:
         app: resultserver
     spec:
       containers:
-      - image: clarusway/resultserver13
+      - image: aydintokuslu/proje_resultserver
         name: resultserver13
         ports:
         - containerPort: 80
