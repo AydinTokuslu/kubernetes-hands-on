@@ -2,27 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: mysql
-  name: mysql
+    app: resultserver
+  name: resultserver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: resultserver
   strategy: {}
   template:
     metadata:
       labels:
-        app: mysql
+        app: resultserver
     spec:
       containers:
-      - image: mysql:5.7
-        name: mysql
+      - image: aydintokuslu/proje_resultserver
+        name: resultserver
         ports:
-        - containerPort: 3306
+        - containerPort: 80
         env: 
-        - name: MYSQL_ROOT_PASSWORD
-          value: R1234r
+        - name: MYSQL_DATABASE_HOST
+          value: mysql
         - name: MYSQL_USER
           value: clarus
         - name: MYSQL_PASSWORD
