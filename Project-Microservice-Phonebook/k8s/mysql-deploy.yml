@@ -23,5 +23,11 @@ spec:
         env: 
         - name: MYSQL_ROOT_PASSWORD
           value: R1234r
+        - name: MYSQL_USER
+          value: Clarusway_1
+        - name: MYSQL_PASSWORD
+          value: clarus
+        - name: MYSQL_DATABASE
+          value: phonebook
         resources: {}
 
