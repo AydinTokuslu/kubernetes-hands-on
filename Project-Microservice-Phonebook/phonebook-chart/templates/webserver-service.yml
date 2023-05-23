@@ -13,4 +13,3 @@ spec:
   selector:
     app: webserver
   type: NodePort
-
